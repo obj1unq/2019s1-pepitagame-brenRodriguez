@@ -30,7 +30,11 @@ object pepita {
 	method energiaParaVolar(distancia) = 15 + 5 * distancia
 
 	method move(nuevaPosicion) {
-		energia -= self.energiaParaVolar(position.distance(nuevaPosicion))
-		self.position(nuevaPosicion)
+		if(energia < self.energiaParaVolar(position.distance(nuevaPosicion))){
+			game.say(self, "Dame de comer primero!")
+		} else {
+			energia -= self.energiaParaVolar(position.distance(nuevaPosicion))
+			self.position(nuevaPosicion)
+		}
 	}	
 }
