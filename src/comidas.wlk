@@ -1,6 +1,6 @@
 import wollok.game.*
 
-object manzana {
+class Manzana {
 	var property position = game.at(5,1)
 	method image() = "manzana.png"
 	method energia() = 80
@@ -11,9 +11,13 @@ object manzana {
 	method guardarte(){
 		game.removeVisual(self)
 	}
+	
+	method teEncontro(alguien){
+		alguien.agarrarComida(self)
+	}
 }
 
-object alpiste {
+class Alpiste {
 	var property position = game.at(5,5)
 	method image() = "alpiste.png"
 	method energia() = 5
@@ -22,5 +26,9 @@ object alpiste {
 	}
 	method guardarte(){
 		game.removeVisual(self)
+	}
+
+	method teEncontro(alguien){
+		alguien.agarrarComida(self)
 	}
 }
